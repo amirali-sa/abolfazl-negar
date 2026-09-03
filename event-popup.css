@@ -1,0 +1,283 @@
+/* ================= Popup «اطلاعات مراسم» — v3 (دکمه و اسکیل مطابق مرجع) ================= */
+@font-face {
+    font-family: 'font_50';
+    src: url('/fonts/font_50.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ---------- دکمه باز کردن (مطابق مرجع) ---------- */
+.loc-trigger-wrap {
+    text-align: center;
+    margin: 22px 0 34px;
+}
+
+@media (max-width: 480px){
+    .loc-trigger-wrap { margin: 16px 0 18px; }
+}
+#evOpenBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #C9A45C;
+    color: #fff;
+    border: 1px solid #C9A45C;
+    border-radius: 999px;
+    padding: 13px 28px;
+    font-family: 'Yekanbakh', Tahoma, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: 0 4px 12px rgba(201, 164, 92, .35);
+}
+#evOpenBtn:hover {
+    background: #B8924E;
+    border-color: #B8924E;
+    transform: translateY(-2px);
+}
+#evOpenBtn .loc-trigger-pin { display: inline-flex; align-items: center; }
+
+/* ---------- Overlay (مطابق مرجع) ---------- */
+#evOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .72);
+    z-index: 999998;
+    padding: 18px;
+    overflow: hidden;
+    font-family: 'font_50', Tahoma, sans-serif;
+    opacity: 0;
+    transition: opacity .2s ease;
+}
+#evOverlay.ev-visible { display: flex; align-items: center; justify-content: center; }
+#evOverlay.ev-show { opacity: 1; }
+
+/* ---------- Dialog (مطابق مرجع: 430px، 92vh، اسکرول داخلی) ---------- */
+#evDialog {
+    background: #fff;
+    color: #222;
+    border-radius: 18px;
+    max-width: 430px;
+    width: 100%;
+    max-height: 92vh;
+    overflow-y: auto;
+    padding: 18px 20px 24px;
+    position: relative;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .45);
+    text-align: center;
+    direction: rtl;
+    transform: scale(.94);
+    transition: transform .25s ease;
+    scrollbar-width: thin;
+}
+#evOverlay.ev-show #evDialog { transform: scale(1); }
+#evDialog * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+.ev-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+}
+.ev-header .ev-title {
+    flex: 1;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+}
+.ev-close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    color: #333;
+    cursor: pointer;
+    padding: 0 4px;
+    transition: color .2s;
+}
+.ev-close:hover { color: #000; }
+
+.ev-poem {
+    text-align: center;
+    padding: 0 8px;
+    font-size: 15px;
+    line-height: 2;
+    color: #555;
+    white-space: pre-line;
+    margin-bottom: 6px;
+}
+
+.ev-divider {
+    width: 170px;
+    height: 14px;
+    margin: 6px auto;
+    display: block;
+}
+
+.ev-sec-title {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 700;
+    color: #333;
+    margin: 14px 0 10px;
+}
+
+/* ---------- شمارش معکوس ---------- */
+.ev-countdown {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    direction: rtl;
+    padding: 0 10px;
+}
+.ev-cd-box {
+    background: linear-gradient(180deg, #faf6ec, #f3ecdb);
+    border: 1px solid #e5d9bd;
+    border-radius: 12px;
+    min-width: 68px;
+    padding: 10px 4px 8px;
+    text-align: center;
+}
+.ev-cd-num {
+    font-size: 26px;
+    font-weight: bold;
+    color: #8a6d3b;
+    line-height: 1.15;
+    font-variant-numeric: tabular-nums;
+}
+.ev-cd-label { font-size: 11.5px; color: #a99e88; margin-top: 2px; }
+
+.ev-date-note {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+    line-height: 1.9;
+    padding: 0 10px;
+}
+.ev-date-note b { color: #222; }
+
+/* ---------- نقشه ---------- */
+.ev-map {
+    display: block;
+    margin: 0 4px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .12);
+    height: auto;
+}
+.ev-map img { width: 100%; height: auto; display: block; }
+
+/* ---------- مسیریابی (مطابق مرجع: 58px دایره، اینجا ۲ برابر آیکون) ---------- */
+.ev-routing {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin: 0;
+}
+.ev-route-btn {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #eee;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .25s;
+    text-decoration: none;
+}
+.ev-route-btn:hover { transform: translateY(-3px); }
+.ev-route-btn img { width: 96px; height: 96px; object-fit: contain; display: block; }
+
+.ev-address {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+    color: #333;
+    margin: 18px 0 4px;
+}
+
+/* ---------- فرم ---------- */
+.ev-form { padding: 6px 4px 0; }
+.ev-field { margin-bottom: 12px; text-align: right; }
+.ev-field label { display: block; font-size: 14px; color: #555; margin-bottom: 6px; }
+.ev-field label .req { color: #e91e63; }
+.ev-field input, .ev-field textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 15px;
+    font-family: inherit;
+    color: #222;
+    outline: none;
+    transition: border-color .25s, box-shadow .25s;
+    background: #fff;
+}
+.ev-field input:focus, .ev-field textarea:focus {
+    border-color: #C9A45C;
+    box-shadow: 0 0 0 3px rgba(201, 164, 92, .15);
+}
+.ev-field textarea { height: 76px; resize: none; }
+
+.ev-error {
+    color: #e91e63;
+    font-size: 12px;
+    margin-top: 4px;
+    display: none;
+}
+.ev-error.active { display: block; animation: evShakeX .34s ease; }
+
+@keyframes evShakeX {
+    0%, 100% { transform: translateZ(0); }
+    30%, 50%, 70% { transform: translate3d(-5px, 0, 0); }
+    20%, 40%, 60%, 80% { transform: translate3d(5px, 0, 0); }
+}
+
+.ev-submit {
+    background: #7fb069;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 13px 44px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all .25s;
+    box-shadow: 0 4px 12px rgba(127, 176, 105, .35);
+}
+.ev-submit:hover { background: #6d9c58; }
+.ev-submit:disabled { opacity: .6; cursor: wait; }
+
+.ev-success {
+    display: none;
+    text-align: center;
+    padding: 14px 18px 22px;
+    color: #4CAF50;
+    font-size: 16px;
+}
+.ev-success svg { width: 56px; height: 56px; margin-bottom: 8px; }
+.ev-success .check {
+    animation: evCheck .5s cubic-bezier(0.65, 0, 1, 1) .3s forwards;
+    stroke-dasharray: 0, 75px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+@keyframes evCheck { to { stroke-dasharray: 75px, 0; } }
+
+/* موبایل خیلی باریک */
+@media (max-width: 400px) {
+    #evDialog { padding: 14px 12px 20px; }
+    .ev-route-btn { width: 84px; height: 84px; }
+    .ev-route-btn img { width: 72px; height: 72px; }
+    .ev-routing { gap: 12px; }
+}

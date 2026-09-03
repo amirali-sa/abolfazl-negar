@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <circle class="white-circle" fill="#FFFFFF" cx="64" cy="64" r="56" stroke="#4CAF50" stroke-width="4"/>
+  <polyline class="check" fill="none" stroke="#4CAF50" stroke-width="8" points="40 66 56 82 88 50"/>
+</svg>
