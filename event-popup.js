@@ -101,7 +101,7 @@ var EV_DB_CONFIG = {
         var cfg = EV_DB_CONFIG;
         if (cfg.url.indexOf('YOUR-') === -1 && cfg.apiKey.indexOf('YOUR-') === -1) {
             // ذخیره در Supabase (جدول: rsvps)
-            fetch(cfg.url + '/rest/v1/rsvps', {
+            fetch(cfg.url + '/rest/v1/rsvps'/rest/v1/rsvps, {
                 method: 'POST',
                 headers: {
                     'apikey': cfg.apiKey,
