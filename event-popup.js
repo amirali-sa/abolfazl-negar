@@ -2,7 +2,8 @@
 /* پس از ثبت‌نام در supabase.com این دو مقدار را از Settings > API بر دارید */
 var EV_DB_CONFIG = {
     url: 'https://uuyhqbxugvvlikfbcdmo.supabase.co',   // Project URL
-    apiKey: 'sb_publishable_Lu-O7tZeEYS2gi9c5gCvlQ_odwu6j1y'  // anon public key
+    apiKey: 'sb_publishable_Lu-O7tZeEYS2gi9c5gCvlQ_odwu6j1y',  // anon public key
+    table: 'messages'                                  // جدول پیام‌ها
 };
 
 (function () {
@@ -17,7 +18,7 @@ var EV_DB_CONFIG = {
     var msgInput = document.getElementById('evMessage');
     var nameError = document.getElementById('evNameError');
 
-    var CD_TARGET = new Date('2026-09-20T19:00:00+03:30').getTime(); // 1405/06/29 ساعت ۱۹
+    var CD_TARGET = new Date('2026-11-20T18:00:00+03:30').getTime(); // 1405/08/29 ساعت ۱۸
 
     // اعداد فارسی
     function faNum(n) {
@@ -99,9 +100,10 @@ var EV_DB_CONFIG = {
         }
 
         var cfg = EV_DB_CONFIG;
+        var table = cfg.table || 'rsvps';
         if (cfg.url.indexOf('YOUR-') === -1 && cfg.apiKey.indexOf('YOUR-') === -1) {
-            // ذخیره در Supabase (جدول: rsvps)
-            fetch(cfg.url + '/rest/v1/rsvps', {
+            // ذخیره در Supabase (جدول پیام‌ها)
+            fetch(cfg.url + '/rest/v1/' + table, {
                 method: 'POST',
                 headers: {
                     'apikey': cfg.apiKey,

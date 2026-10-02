@@ -228,6 +228,19 @@
 }
 .ev-field textarea { height: 76px; resize: none; }
 
+/* ---------- یادداشت میزبانی (زیر لیبل پیام) ---------- */
+.ev-host-note {
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.9;
+    color: #666;
+    background: #faf7f0;
+    border: 1px dashed #e4d3ae;
+    border-radius: 8px;
+    padding: 7px 10px;
+    margin: 0 0 8px;
+}
+
 .ev-error {
     color: #e91e63;
     font-size: 12px;
